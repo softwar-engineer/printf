@@ -30,9 +30,9 @@ unsigned char flags, int wid, int prec)
 				flags, wid - 1, prec - 1);
 	else
 	{
-		for (; prec > 1; prec--, wid--) /* Handle precision */
+		for (; prec > 1; prec--, wid--)/* Handle precision */
 			ret += _memcpy(output, &pad, 1);
-		if (NEG_FLAG == 0) /* Handle width */
+		if (NEG_FLAG == 0)/* Handle width */
 		{
 			pad = (ZERO_FLAG == 1) ? '0' : ' ';
 			for (; wid > 1; wid--)
@@ -75,7 +75,7 @@ unsigned char flags, int wid, int prec)
 			prec -= 2; }
 			prec -= 2;
 		}
-		for (; prec > 1; prec--, wid--) /* Handle precision */
+		for (; prec > 1; prec--, wid--)/* Handle precision */
 			ret += _memcpy(output, &pad, 1);
 		if (NEG_FLAG == 0) /* Handle width */
 		{
