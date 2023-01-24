@@ -64,12 +64,15 @@ unsigned char flags, int wid, int prec)
 	for (size = 0; *(base + size);)
 		size++;
 	if (num >= size)
+		ret += convert_ubase(output, num / size, base,
+				flags, wid - 1, prec - 1);
 		ret += convert_ubase(output, num / size, base, flags, wid - 1, prec - 1);
 	else
 	{
 		if (((flags >> 5) & 1) == 1) /* Printing a ptr address */
 		{
 			wid -= 2;
+			prec -= 2; }
 			prec -= 2;
 		}
 		for (; prec > 1; prec--, wid--)/* Handle precision */
